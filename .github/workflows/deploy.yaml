@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: ["main"] # Adjust the branch name as needed
+    branches: [ "main" ] # Adjust the branch name as needed
 
 jobs:
   deploy:
@@ -21,9 +21,23 @@ jobs:
       - name: Install Dependencies
         run: npm install && npm audit fix --force
 
-      - name: Build and Deploy
+      - name: Start HTTP server
         run: npm start
+        background: true
 
+      - name: Wait for server to start
+        run: npx wait-on http://localhost:8080
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload dist repository
+          path: './app/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
