@@ -19,7 +19,7 @@ jobs:
           node-version: '21.4.0'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm install && npm audit fix --force
 
       - name: Build and Deploy
         run: npm start
