@@ -1,0 +1,74 @@
+body {
+    background-color: #18222D;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    text-align: center;
+}
+
+.image {
+    width: 120px;
+    height: 120px;
+    background-color: #3498db; /* Set your desired background color */
+    border-radius: 50%; /* Create a circle by setting border-radius to 50% */
+    margin: auto;
+}
+
+.name {
+    font-size: 24px;
+}
+
+.balance {
+    font-size: 20px;
+    opacity: 64%;
+}
+
+.referrals {
+    font-size: 16px;
+    opacity: 40%;
+}
+
+.withdrawal {
+    font-size: 14px;
+    background-color: green; /* Background color for .withdrawal */
+    border-radius: 100px; /* Optional: Add border-radius for rounded corners */
+    cursor: pointer;
+    margin: auto;
+    width: 20%;
+    padding: 2px;
+}
+
+.withdrawal:hover {
+    background-color: #37FF3723; /* Change background color on hover */
+}
+
+.svg {
+    position: absolute;
+    right: 5em; /* Adjust as needed */
+    top: 35%;
+    transform: translateY(-50%);
+    margin-left: 2px; /* Adjust as needed */
+}
+
+
+.ref, .statistic, .information {
+    font-size: 18px;
+    padding: 10px; /* Add padding for better visibility */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+    cursor: pointer;
+    position: relative; /* Position relative for absolute positioning of the arrow */
+}
+
+
+.margin {
+    margin-top: 3em;
+}
+
+hr {
+    background-color: #475467;
+    width: 70%;
+}
+
+
