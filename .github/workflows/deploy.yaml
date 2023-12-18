@@ -1,25 +1,25 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
     branches:
-      - main  # Change this to your default branch
+      - main  # Adjust the branch name as needed
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Deploy to GitHub Pages
-      run: |
-        mkdir -p docs
-        mv index.html docs
-        mv style.css docs
-        mv arrow.svg docs
-        mv script.js docs
-        echo "User-agent: *\nDisallow: /" > docs/robots.txt
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build and Deploy
+        run: npm start
